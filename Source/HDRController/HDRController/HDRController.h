@@ -1,5 +1,6 @@
 namespace core
 {
+    extern "C" void  SetGlobalHDR(bool enabled);
     class HDRController
     {
     public:

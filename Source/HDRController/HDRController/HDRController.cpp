@@ -17,21 +17,22 @@
 #include <cstring>
 #include <conio.h>
 #include <vector>
+#include <tchar.h>
 
 
 using namespace core;
 
 static void showError(std::string msg)
 {
-	LPCWSTR lmsg = (LPCWSTR)msg.c_str();
+	auto lmsg = (LPCTSTR)msg.c_str();
 
-	MessageBox(NULL, lmsg, L"HDRController Error", MB_OK | MB_ICONWARNING);
+	MessageBox(NULL, lmsg, _T("HDRController Error"), MB_OK | MB_ICONWARNING);
 }
 
 
 
 
-static void  SetHDR(UINT32 uid, bool enabled)
+static void SetHDR(UINT32 uid, bool enabled)
 {
 	uint32_t pathCount, modeCount;
 
@@ -126,7 +127,7 @@ static void  SetHDR(UINT32 uid, bool enabled)
 	}
 }
 
-static void  SetGlobalHDR(bool enabled)
+void core::SetGlobalHDR(bool enabled)
 {
 	uint32_t pathCount, modeCount;
 
